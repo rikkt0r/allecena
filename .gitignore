@@ -1,4 +1,5 @@
 temporary_db.sqlite3
+local_settings.py
 allegro_api.version
 allegro_api.session
 

@@ -96,14 +96,8 @@ rabbitmqctl set_permissions -p / rikkt0r ".*" ".*" ".*"
 rabbitmqctl set_user_tags rikkt0r administrator
 ```
 
-### Mysql config
-```
-[mysqld]
-transaction-isolation = READ-COMMITTED
-```
-
 ### Before running
-Set the following variables in app/deploy_settings (well.. add it to gitignore?)
+Create app/local_settings.py from app/local_settings.py.template and fill the following variables:
 * ALLEGRO_PASSWORD_HASH
 * ALLEGRO_KEY
 * ALLEGRO_LOGIN

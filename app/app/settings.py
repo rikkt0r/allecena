@@ -291,7 +291,7 @@ ALLEGRO_SESSION_FILE = os.path.join(BASE_DIR, 'allegro_api.session')
 ALLEGRO_VERSION = 0
 ALLEGRO_COUNTRY = 1  # country code for poland
 
-from .deploy_settings import ALLEGRO_PASSWORD_HASH, ALLEGRO_KEY, ALLEGRO_LOGIN
+from .local_settings import ALLEGRO_PASSWORD_HASH, ALLEGRO_KEY, ALLEGRO_LOGIN
 
 EBAY_SOAP_URL = 'register and fill me'
 EBAY_SOAP_WSDL = 'file://' + os.path.join(BASE_DIR, 'static', 'ebay.wsdl')
