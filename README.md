@@ -7,7 +7,7 @@ Hello Stranger,
 this is AlleCena, abreviated from polish 'Ale cena'(what a price!).
 It's a tool for statistical analysis and tracking of the most popular polish online auction system allegro.pl
 
-Awarded in 2015 during [BrainCode Mobi 2015] (https://allegro.tech/braincode/2015/#toc_11) as the best application in category 'Allegro'
+Awarded in 2015 during [BrainCode Mobi 2015](https://allegro.tech/braincode/2015/#toc_11) as the best application in category 'Allegro'
 
 Application features:
 * **price evaluation** at which user should sell a desired item
@@ -22,8 +22,8 @@ And all the above, given just user account and scarce information like item name
 
 ### Authors
 Main authors:
-* Grzegorz Wójcicki
-* Krzysztof Bijakowski
+* Grzegorz Wójcicki [@rikkt0r](https://github.com/rikkt0r)
+* Krzysztof Bijakowski [@kbijakowski](https://github.com/kbijakowski)
 
 Initally helped out with the project:
 * Grzegorz Gurgul
