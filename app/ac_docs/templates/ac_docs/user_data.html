@@ -1,0 +1,31 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/user/data {% endblock %}
+
+{% block markdown %}
+
+# Request
+### PUT /api/user/data
+
+```json
+{
+    "allegro_login": "a"
+    "ebay_login": "b"
+    "first_name": "K"
+    "last_name": "B"
+}
+
+pola opcjonalne ...
+```
+
+# Response
+### HTTP 200
+```json
+{}
+```
+
+### HTTP 400
+```json
+{}
+```
+{% endblock %}

@@ -1,0 +1,239 @@
+{
+    "test": "EN",
+    "menu" : {
+        "home"              : "Home",
+        "analyse"           : "Analysis",
+        "about"             : "About",
+        "login"             : "Login",
+        "register"          : "Register",
+        "panel"             : "My AlleCena",
+        "results"           : "My results",
+        "auctions"          : "My auctions",
+        "triggers"          : "Auction triggers",
+        "settings"          : "Settings",
+        "logout"            : "Logout"
+    },
+    "correlations" : {
+        "isBuyNow"          : "Buy now",
+        "priceBuyNow"       : "Buy now price",
+        "priceHighestBid"   : "Highest bid price",
+        "hasPhotos"         : "Product photos",
+        "sellerRating"      : "Seller rating",
+        "sellerShop"        : "Seller is a shop",
+        "sellerSuper"       : "Superseller",
+        "isForGuests"       : "Possibility of buying without registartion",
+        "isProduct"         : "Is cataloged product",
+        "isBrandZone"       : "Brand zone",
+        "payuInstallment"   : "Payu",
+        "allegroStandard"   : "Allegro standard",
+        "timeEnds"          : "End time",
+        "shipmentFree"      : "Free shiping",
+        "minShipmentPrice"  : "Minimal shpiment price",
+        "minShipmentTime"   : "Minimal shpiment time",
+        "featureHighlight"  : "Auction highlighted",
+        "featurePromotion"  : "Auction promoted",
+        "featureBold"       : "Auction announcement boled",
+        "amountStart"       : "Number of all available items",
+        "amountLeft"        : "Number of remaining items",
+        "views"             : "Views amount",
+        "used"              : "Used product",
+        "offerInfinite"     : "Infinite offer",
+        "minPriceNotReached": "Minimal price not reached",
+        "minPriceSet"       : "Minimal price set",
+        "invoice"           : "Invoice",
+        "guarantee"         : "Guarantee",
+        "paymentPayu"       : "Payu", 
+        "paymentOnDelivery" : "Payment on delivery",
+        "paymentTransfer"   : "Payment transfer"
+    },
+    "analysis" : {
+        "features" : {
+            "hint"          : "Price prediction",
+            "prediction"    : "Selling probability prediction",
+            "histogram"     : "Prices histogram",
+            "trends"        : "Price trends chart",
+            "statistics"    : "Basic statistics"
+        },
+        "settings" : {
+            "settings"      : "Analysis settings",
+            "actions"       : "Actions",
+            "sources"       : "Data sources",
+            "analysis" : {
+                "analysis"  : "Analysis",
+                "basic"     : "Basic analysis",
+                "advanced"  : "Advanced analysis"
+            },
+            "countries"     : {
+                "countries" : "Countires",
+                "poland"    : "Poland",
+                "czechRepublic": "Czech Republic",
+                "hungary"   : "Hungary",
+                "ukraine"   : "Ukraine"
+            }
+        },
+        "send"              : "Send"
+    },
+    "user" : {
+        "auctions" : {
+            "no_data": "List is empty or Allegro user name not provided.",
+            "headers" : {
+                "id"        : "Id",
+                "name"      : "Name",
+                "category"  : "Category",
+                "link"      : "Link"
+            }
+        },
+        "results" : {
+            "headers" : {
+                "item"      : "Item",
+                "category"  : "Category",
+                "date"      : "Date",
+                "analyse"   : "Advanced analysis",
+                "action"    : "Actions",
+                "results"   : "Results",
+                "source"    : "Source"
+            },
+            "table" : {
+                "open"      : "Open"
+            }            
+        },
+        "settings" : {
+            "form" : {
+                "password"  : "Password",
+                "passwordRepeated" : "Repeat password",
+                "change"    : "Change password"
+            },
+            "tabs" : {
+                "account"   : "Account settings"
+            }
+        },
+        "triggers" : {
+            "add"           : "Add",
+            "form" : {
+                "linkHeader" : "Link to Allegro auction",
+                "linkDescription" : "Please enter link to Allegro auction, which you would like to follow. AlleCena will follow it for you.",
+                "linkExample" : "e.g. http://allegro.pl/glebogryzarka-spalinowa-versus-7km-ohv-80cm-6-nozy-i5519326834.html",
+                "modeHeader" : "Tracking mode",
+                "modeDescription" : "Please select factor, which you would like to track.",
+                "modeValueHeader" : "Value",
+                "modeValueDescription" : "Please enter value of selected factor.",
+                "modeValueExample" : "np. 1250.55",
+                "timeHeader" : "Checking internal",
+                "timeDescription" : "How often our application should check selected auction for you ?"
+            },
+            "mode" : {
+                "price"     : "Price",
+                "views"     : "Views",
+                "quantity"  : "Quantity"            
+            },
+            "time" : {
+                 "lazy"     : "Vary rarely",
+                 "moderate" : "Rarely",
+                 "turbo"    : "Often",
+                 "ultra_turbo" : "Very often"
+            },
+            "headers" : {
+                "id"        : "Auction id",
+                "name"      : "Auction Name",
+                "sources"   : "Data sources",
+                "mode"      : "Mode",
+                "modeValue" : "Value",
+                "finished"  : "Finished",
+                "date_created"  : "Creation date",
+                "date_finished" : "End date",
+                "actions"   : "Actions",
+                "time"      : "Checking interval"
+            },
+            "table" : {
+                "preview"   : "Preview",
+                "delete"    : "Delete"
+            }, 
+            "tabs" : {
+                "add"       : "Add new trigger",
+                "list"      : "My triggers"
+            },
+            "details" : {
+                "details"   : "Details",
+                "values"    : "Results",
+                "factor"    : "Factor",
+                "value"     : "Value",
+                "date"      : "Date"
+            },
+            "legend": {
+                "price"     : "Price in time"
+            }
+        }    
+    },
+    "histogram" : {
+        "legend" : {
+            "lasting" : "Lasting",
+            "ended" : "Ended"
+        }
+    },
+    "trends" : {
+        "legend" : {
+            "mean" : "Mean price",
+            "amount" : "Amount of sold items"
+        }
+    },
+    "http": {
+        "errors": {
+            "error":"Error",
+            "400":"Bad Request",
+            "401":"Unauthorized",
+            "402":"Payment Required",
+            "403":"Forbidden",
+            "404":"Not Found",
+            "405":"Method Not Allowed",
+            "406":"Not Acceptable",
+            "407":"Proxy Authentication Required", 
+            "408":"Request Timeout",
+            "409":"Conflict",
+            "410":"Gone",
+            "411":"Length required",
+            "412":"Precondition Failed",
+            "413":"Request Entity Too Large",
+            "414":"Request-URI Too Long",
+            "415":"Unsupported Media Type", 
+            "416":"Requested Range Not Satisfiable",
+            "417":"Expectation Failed",
+            "418":"I'm a teapot",
+            "451":"Unavailable For Legal Reasons",
+            "500":"Internal Server Error",
+            "501":"Not Implemented",
+            "502":"Bad Gateway",
+            "503":"Service Unavailable",
+            "504":"Gateway Timeout",
+            "505":"HTTP Version Not Supported",
+            "506":"Variant Also Negotiates",
+            "507":"Insufficient Storage",
+            "508":"Loop Detected",
+            "510":"Not Extended",
+            "511":"Network Authentication Requires"
+        }
+    },
+    "enumerations" : {
+        "yesNo" : {
+            "yes"           : "yes",
+            "no"            : "no"
+        },
+        "triggersMode" : {
+             "0"        : "price",
+             "1"        : "views",
+             "2"        : "quantity"
+        },
+        "triggersTime" : {
+            "0"          : "very rarely",
+            "1"          : "rarely",
+            "2"          : "often",
+            "3"          : "very often"
+        }
+    },
+    "errors" : {
+        "required"          : "This field is mandatory and cannot be empty",
+        "passwordsNotMatch" : "Passwords don't match"
+    },
+    "messages" : {
+        "success"           : "Operation has ended with success !"
+    }
+}

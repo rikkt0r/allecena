@@ -1,0 +1,246 @@
+<div class="jumbotron">
+    <h1>Super wycena</h1>
+    <p>
+        Z nami <b>oszczędzisz czas</b> wystawiając swoją aukcję na Allegro.<br/>
+        Wycena jest przeprowadzana tak abyś:
+    </p>
+
+    <ul class="rectangle-list list-none">
+        <li><a>Zyskał/a jak nawięcej,</a></li>
+        <li style="padding-left: 20px;"><a>Sprzedał/a jak najszybciej,</a></li>
+        <li style="padding-left: 40px;"><a>Zminimalizował/a ryzyko.</a></li>
+    </ul>
+
+    <p>
+        <u>Dodatkowo</u> wynik analizy zawiera zestaw prostych statystyk dotyczących aukcji podobnych do Twojej oraz cech aukcji, które miały największy wpływ na prognozę ceny.
+        Całe zestawienie pomoże Ci podjąc prawidłową decyzję przy ustalaniu ceny, czasu trwania aukcji oraz opcji promocyjnych.<br /><br />
+        <b>Bądź pewien swojego sukcesu !</b><br />
+    </p>
+</div>
+
+
+<form name="analysisForm" class="center-block">
+
+    <div class="row" ng-if="isAllegroUserNeeded()">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h4 class="text-center text-bold">Nazwa użytkownika Allegro</h4>
+            <h5 class="text-center">Twój login na Allegro. Jest niezbędny do pobrania odpowiednich danych.</h5>
+
+            <div class="form-group" ng-class="{'has-error': analysisForm.accountAllegro.$invalid && (analysisForm.accountAllegro.$dirty || submitted)}">
+                <input type="text" name="accountAllegro" id="inputLoginAllegro" class="form-control" placeholder="Login z Allegro" ng-model="data.data.account.allegro" required />
+            </div>
+
+            <div class="alert alert-danger" ng-show="analysisForm.accountAllegro.$invalid && (analysisForm.accountAllegro.$dirty || submitted)">
+                <ul>
+                    <li ng-show="analysisForm.accountAllegro.$error.required">To pole jest wymagane</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row next-step-row" ng-if="isAllegroUserNeeded()">
+        <i class="next-step-icon"></i>
+    </div>
+
+    <div class="row" ng-if="isEbayUserNeeded()">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h4 class="text-center text-bold">Nazwa użytkownika Ebay.</h4>
+            <h5 class="text-center">Twój login na Ebay. Jest niezbędny do pobrania odpowiednich danych.</h5>
+
+            <div class="form-group" ng-class="{'has-error': analysisForm.accountEbay.$invalid && (analysisForm.accountEbay.$dirty || submitted)}">
+                <input type="text" name="accountEbay" id="inputLoginEbay" class="form-control" placeholder="Login z Ebay" ng-model="data.data.account.ebay" required />
+            </div>
+
+            <div class="alert alert-danger" ng-show="analysisForm.accountEbay.$invalid && (analysisForm.accountEbay.$dirty || submitted)">
+                <ul>
+                    <li ng-show="analysisForm.accountEbay.$error.required">To pole jest wymagane</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row next-step-row" ng-if="isEbayUserNeeded()">
+        <i class="next-step-icon"></i>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h4 class="text-center text-bold">Nazwa przedmiotu</h4>
+            <h5 class="text-center">Innymi słowy nazwa aukcji którą założysz.</h5>
+
+            <div class="form-group" ng-class="{'has-error': analysisForm.itemName.$invalid && (analysisForm.itemName.$dirty || submitted)}">
+                <input type="text" name="itemName" id="inputItemName" class="form-control" placeholder="np. Glebogryzarka" ng-model="data.data.item.name" required />
+            </div>
+
+            <div class="alert alert-danger" ng-show="analysisForm.itemName.$invalid && (analysisForm.itemName.$dirty || submitted)">
+                <ul>
+                    <li ng-show="analysisForm.itemName.$error.required">To pole jest wymagane</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row next-step-row">
+        <i class="next-step-icon"><i></i></i>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+            <h4 class="text-center text-bold">Kategoria</h4>
+            <h5 class="text-center">w której zamierzasz wystawić swój przedmiot</h5>
+
+            <div class="form-group">
+                <div ng-controller="CategoriesCtrl">
+                    <div mass-autocomplete>
+                        <input class="form-control" ng-model="category"
+                            mass-autocomplete-item="autocomplete_options" placeholder="Podaj kategorie" />
+                        <input type="hidden" name="category_id" ng-model="category_id" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row next-step-row">
+        <i class="next-step-icon"><i></i></i>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-2 col-sm-3 col-sm-offset-3">
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="data.data.item.guarantee"/><span>Gwarancja?</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-4 col-xs-offset-2 col-sm-3 col-sm-offset-1">
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="data.data.item.used"/><span>Nowy?</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row next-step-row">
+        <i class="next-step-icon"><i></i></i>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-default btn-lg" aria-label="Left Align"  style="width: 100%;" ng-click="analysisOptions = !analysisOptions">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{'analysis.settings.settings' | translate}}
+            </button>
+
+            <br/><br/>
+
+            <div uib-collapse="!analysisOptions">
+                <div class="well well-lg">
+
+                <h2>{{'analysis.settings.analysis.analysis' | translate}}:</h2>
+                <div class="radio">
+                    <label class="radio">
+                        <input type="radio" name="analysis" ng-model="data.data.analysis.advanced" data-ng-value="false">
+                        <span>{{'analysis.settings.analysis.basic' | translate}}</span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label class="radio">
+                        <input type="radio" name="analysis" ng-model="data.data.analysis.advanced" data-ng-value="true">
+                        <span>{{'analysis.settings.analysis.advanced' | translate}}</span>
+                    </label>
+                </div>
+
+                <br/><h2>{{'analysis.settings.sources' | translate}}:</h2>
+                 <div class="checkbox">
+                    <form role="form">
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.sources" checklist-value="'allegro'"><span>Allegro</span>
+                        </label><br/>
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.sources" checklist-value="'ebay'"><span>Ebay</span>
+                        </label>
+                    </form>
+                </div>
+
+                <br/>
+                <h2>{{'analysis.settings.countries.countries' | translate}}:</h2>
+                <div class="checkbox">
+                    <form role="form">
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.data.countries" checklist-value="'poland'">
+                            <span>{{'analysis.settings.countries.poland' | translate}}</span>
+                        </label><br/>
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.data.countries" checklist-value="'czech_republic'">
+                            <span>{{'analysis.settings.countries.czechRepublic' | translate}}</span>
+                        </label><br/>
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.data.countries" checklist-value="'hungary'">
+                            <span>{{'analysis.settings.countries.hungary' | translate}}</span>
+                        </label><br/>
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.data.countries" checklist-value="'ukraine'">
+                            <span>{{'analysis.settings.countries.ukraine' | translate}}</span>
+                        </label><br/>
+                    </form>
+                </div>
+
+                <br/>
+                <h2>{{'analysis.settings.actions' | translate}}:</h2>
+                <div class="checkbox">
+                    <form role="form">
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.actions" checklist-value="'hint'">
+                            <span>{{'analysis.features.hint' | translate}}</span>
+                        </label><br/>
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.actions" checklist-value="'prediction'">
+                            <span>{{'analysis.features.prediction' | translate}}</span>
+                        </label><br/>
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.actions" checklist-value="'statistics'">
+                            <span>{{'analysis.features.statistics' | translate}}</span>
+                        </label><br/>
+                        <label class="checkbox">
+                            <input type="checkbox" checklist-model="data.actions" checklist-value="'histogram'">
+                            <span>{{'analysis.features.histogram' | translate}}</span>
+                        </label><br/>
+                        <label class="checkbox" ng-show="data.data.analysis.advanced == true">
+                            <input type="checkbox" name="trends" checklist-model="data.actions" checklist-value="'trends'">
+                            <span>{{'analysis.features.trends' | translate}}</span>
+                        </label><br/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="!submitted && !resultId">
+        <div class="col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
+            <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;" ng-click="send(analysisForm)">
+            {{'analysis.send' | translate}}
+            </button>
+        </div>
+    </div>
+
+    <div class="row" ng-show="submitted && !resultId">
+        <div class="col-md-10 col-md-offset-2">
+            <h2>Trwa przetwarzanie Twojego zapytania. Proszę czekać</h2><br/>
+            <img class="center-block" src="/static/images/loader.gif"/>
+        </div>
+    </div>
+
+   <div class="row" ng-show="resultId">
+        <div class="col-md-10 col-md-offset-2">
+            <h2>Analiza zakończona powodzeniem</h2><br/>
+            <a href="#/analysis/result/{{resultId}}">Zobacz wyniki</a>
+        </div>
+   </div>
+</form>
+<br/><br/>

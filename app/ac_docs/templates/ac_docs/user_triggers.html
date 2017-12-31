@@ -1,0 +1,83 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/user/triggers/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### GET /api/user/triggers/[trigger_id], default=Wszystkie
+
+```json
+{}
+```
+
+### POST /api/user/triggers/
+```json
+{
+  "auction_id": 32424,
+  "provider": 'allegro',
+  "mode": 'price', // price, views, quantity
+  "mode_value" : 1250,
+  "time": "lazy" // lazy, moderate, turbo, ultra_turbo
+}
+```
+
+### DELETE /api/user/triggers/[trigger_id]/
+```json
+{}
+```
+
+# Response
+### @(GET) HTTP 200
+lista:
+```json
+{
+ "triggers": [
+  {
+    "id" : 1,
+    "mode" : "price_above",
+    "mode_value": 1000,
+    "finished": false,
+    "provider": 'allegro',
+    "name": "tutaj nazwa aukcji ktora sie pobierze",
+    "date_created": "2016-01-10 11:22",
+    "date_finished": "2016-01-12 07:22",
+  },
+     ...
+  ]
+}
+```
+trigger po ID:
+```json
+{
+ "trigger": {
+    "id" : 1,
+    "mode" : "price_above",
+    "mode_value": 1000,
+    "finished": false,
+    "error": false,
+    "provider": 'allegro',
+    "auction_id": 32424,
+    "time": 'lazy',
+    "name": "tutaj nazwa aukcji ktora sie pobierze",
+    "date_created": "2016-01-10 11:22",
+    "date_finished": "2016-01-12 07:22",
+    "data": {
+      "times": [], // listy czasu i wartosci do wyrysowania wykresu
+      "values": [],
+    }
+  }
+}
+```
+
+### @(POST, DELETE) HTTP 200
+```json
+{}
+```
+
+### HTTP 404, 418
+```json
+{}
+```
+
+{% endblock %}

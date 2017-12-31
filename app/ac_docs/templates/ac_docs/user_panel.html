@@ -1,0 +1,52 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/user/panel/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### GET /api/user/panel/
+
+```json
+{}
+```
+
+### PUT /api/user/panel/
+
+```json
+{
+  "fields": [
+    {"first_name": "hesus"},
+    {"last_name": "superstar"},
+    {"allegro_login": "jesus"},
+    {"ebay_login": "hesus2016"},
+    ...
+  ]
+}
+```
+
+# Response
+### @(GET) HTTP 200
+```json
+{
+  "user_data": [
+    {"first_name": "hesus"},
+    {"last_name": "superstar"},
+    {"allegro_login": "jesus"},
+    {"ebay_login": "hesus2016"},
+    ...
+  ]
+}
+```
+
+### @(PUT) HTTP 200
+```json
+{}
+```
+
+### HTTP 400
+```json
+{}
+```
+
+{% endblock %}

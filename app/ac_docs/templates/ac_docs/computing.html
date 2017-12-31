@@ -1,0 +1,60 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/computing/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### POST
+
+```json
+{
+  "actions": [
+    "hint",
+    "prediction",
+    "statistics",
+    "histogram",
+    "trends"
+  ],
+  "sources": [
+    "allegro",
+    "ebay"
+  ],
+  "data": {
+    "item": {
+      "name": "iphone 5s",
+      "guarantee": true,
+      "used": false,
+      "category_id": 165,
+      "product_id": 1444 // dla trendów - możliwe wyszukiwanie po sklasyfikowanym produkcie
+    },
+    "auction": "Auction URL",
+    "account": {
+      "ebay": "rikkt0r",
+      "allegro": "rikkt0r2"
+    },
+    "analysis": {
+      "advanced": true
+    },
+    "countries":[
+        "poland",
+        "czech_republic",
+        "hungary",
+        "ukraine"
+    ]
+  }
+}
+```
+
+# Response
+### HTTP 200
+
+```json
+{
+    "computingHash": "38475743fn3784f34f34gf"
+}
+```
+
+od teraz JS śle zapytanie na [/api/polling](/docs/polling/)
+
+{% endblock %}

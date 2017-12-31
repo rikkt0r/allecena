@@ -1,0 +1,34 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/user/register/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### POST /api/user/register/
+
+```json
+{
+    "email": "email@email.com",
+    "new_password": "haslo w base64 (zeby nie bylo stricte plaintext)",
+    "new_password_repeat": "to samo",
+}
+```
+
+# Response
+### HTTP 200
+```json
+{}
+```
+
+### HTTP 400
+```json
+{}
+```
+
+### HTTP 409 (użytkownik istnieje)
+```json
+{}
+```
+
+{% endblock %}

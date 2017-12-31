@@ -1,0 +1,35 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/user/auctions/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### GET /api/user/auctions/
+
+```json
+{}
+```
+
+# Response
+### HTTP 200
+```json
+{
+ "userAuctions": [
+  {
+    "id" : 10,
+    "name" : "Glebogryzarka fajnej firmy",
+    "categoryName": "Obróbka ziemi z kategorii Ogród",
+    "url": "http://xvideos.com?special_offer=lemon_whore_check_it_out
+  },
+	...
+  ]
+}
+```
+
+### HTTP 204
+```json
+{}
+```
+
+{% endblock %}

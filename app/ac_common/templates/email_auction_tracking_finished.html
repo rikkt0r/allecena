@@ -1,0 +1,12 @@
+{% load i18n %}{% autoescape off %}
+{% trans "Hello there" %} {{user.first_name}},
+
+{% blocktrans %}Tracking for your selected auction {{trigger_name}} was just finished {% endblocktrans %}{% if success %}{% trans "Successfully %}{% else %}{% trans "Miserably" %}{% endif %}
+{% trans "See the panel for details" %}
+
+{% blocktrans %}
+Cheers,
+Allecena team
+{% endblocktrans %}
+
+{% endautoescape %}

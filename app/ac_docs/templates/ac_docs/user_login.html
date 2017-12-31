@@ -1,0 +1,59 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/user/login/ {% endblock %}
+
+{% block markdown %}
+
+# Autoryzacja
+* Klient otrzymuje od serwera 403 (forbidden), gdy wejdzie tam gdzie nie ma uprawnień
+* Po zalogowaniu, klient śle za każdym razem token w nagłówku (property: X-Auth­Token)
+
+---
+
+# Request
+### POST /api/user/login/
+
+```json
+{
+    "username": "email@email.com",
+    "password": "haslo w base64 (zeby nie bylo stricte plaintext)"
+}
+```
+
+### POST /api/user/login/facebook
+
+```json
+{
+    "username": "email@email.com",
+    "password": "token facebookowy"
+}
+```
+
+# Response
+### HTTP 200
+```json
+{
+    "token": "f56bc6aed9c869d7f09b9da6e35f5273",
+    "accounts": {
+        "ebay": {
+            "id"   : "1",
+            "name" : "b"
+         },
+         "allegro" : {
+            "id"   : "1511",
+            "name" : "a"
+         }
+    },
+    "user": {
+        "first_name" : "K",
+        "last_name" : "B"
+    }
+}
+```
+
+### HTTP 401
+```json
+{}
+```
+
+{% endblock %}

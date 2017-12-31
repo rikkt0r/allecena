@@ -1,0 +1,51 @@
+<h2>Zaloguj się</h2>
+
+<form name="loginForm" class="center-block">
+    <div>
+        <h4>Adres email</h4>
+
+        <div class="form-group" ng-class="{'has-error': loginForm.email.$invalid && (loginForm.email.$dirty || submitted)}">
+            <input id="login_email" type="email" name="email" class="form-control" ng-model="data.email" placeholder="" required/>
+        </div>
+
+        <div class="alert alert-danger" ng-show="loginForm.email.$invalid && (loginForm.email.$dirty || submitted)">
+            <ul>
+                <li ng-show="loginForm.email.$error.required">To pole jest wymagane</li>
+                <li ng-show="loginForm.email.$error.email">Proszę podać poprawny adres email</li>
+                <li ng-show="loginForm.email.$error.invalidUser">Niepoprawne dane użytkownika</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <h4>Hasło</h4>
+
+        <div class="form-group" ng-class="{'has-error': loginForm.password.$invalid && (loginForm.password.$dirty || submitted)}">
+            <input id="login_password" type="password" name="password" class="form-control" ng-model="data.password" placeholder="" required/>
+        </div>
+
+        <div class="alert alert-danger" ng-show="loginForm.password.$invalid && (loginForm.password.$dirty || submitted) &&
+        !loginForm.password.$error.invalidUser">
+            <ul>
+                <li ng-show="loginForm.password.$error.required">To pole jest wymagane</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <button id="login_submit" type="submit" class="btn btn-warning btn-default btn-lg" style="width: 100%;" ng-click="login(loginForm)">
+            Zaloguj !
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button class="btn btn-social btn-facebook btn-lg" style="width: 100%;" ng-click="facebookLogin()">
+                <span class="fa fa-facebook"></span> Zaloguj się za pomocą Facebooka
+            </button>
+        </div>
+    </div>
+    <br/><br/>
+    <a ng-click="resetPassword()">Zapomniałem hasła</a>
+    <br/><br/>
+</form>

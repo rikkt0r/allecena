@@ -1,0 +1,31 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/user/register/facebook/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### POST /api/user/register/facebook/
+
+```json
+{
+    "email": "email@email.com",
+    "token": "sfvjerhvnj3ggvndjbnj445gb",
+}
+```
+
+# Response
+### HTTP 200
+```json
+{
+  "token": "token serwera"
+}
+```
+a moze jednak zamiast tokenu serwera, zapisac token facebooka i przekazać go.
+
+### HTTP 400
+```json
+{}
+```
+
+{% endblock %}

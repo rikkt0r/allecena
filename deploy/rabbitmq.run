@@ -1,0 +1,11 @@
+# bash @ root
+
+rabbitmqctl add_user allecena hasloMaslo
+rabbitmqctl add_vhost allecena
+rabbitmqctl set_permissions -p allecena allecena ".*" ".*" ".*"
+
+rabbitmqctl delete_user guest
+rabbitmqctl add_user rikkt0r hasloRikkt0ra
+rabbitmqctl set_permissions -p allecena rikkt0r ".*" ".*" ".*"
+rabbitmqctl set_permissions -p / rikkt0r ".*" ".*" ".*"
+rabbitmqctl set_user_tags rikkt0r administrator

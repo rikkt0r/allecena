@@ -1,0 +1,36 @@
+<h3 class="lead">{{'menu.results' | translate}}</h3>
+
+<div class="user-triggers">
+    <table class="table table-striped table-hover" >
+        <thead class="thead-inverse">
+        <tr>
+            <th>{{'user.results.headers.item'     | translate}}</th>
+            <th>{{'user.results.headers.category' | translate}}</th>
+            <th>{{'user.results.headers.source'   | translate}}</th>
+            <th>{{'user.results.headers.date'     | translate}}</th>
+            <th>{{'user.results.headers.analyse'  | translate}}</th>
+            <th>{{'user.results.headers.action'   | translate}}</th>
+            <th>{{'user.results.headers.results'  | translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="result in results">
+            <td>{{result.name}}</td>
+            <td>{{result.category}}</td>
+            <td>{{result.provider}}</td>
+            <td>{{result.date_created.toLocaleString()}}</td>
+            <td>{{result.advanced ? 'TAK' : 'NIE'}}</td>
+            <td>
+                <a><i ng-show="result.hint" uib-tooltip="{{'analysis.features.hint' | translate}}" class="fa fa-dollar fa-fw"></i></a>
+                <a><i ng-show="result.prediction" uib-tooltip="{{'analysis.features.prediction' | translate}}" class="fa fa-percent fa-fw"></i></a>
+                <a><i ng-show="result.histogram" uib-tooltip="{{'analysis.features.histogram' | translate}}" class="fa fa-bar-chart fa-fw"></i></a>
+                <a><i ng-show="result.trends" uib-tooltip="{{'analysis.features.trends' | translate}}" class="fa fa-line-chart fa-fw"></i></a>
+                <a><i ng-show="result.statistics" uib-tooltip="{{'analysis.features.statistics' | translate}}" class="fa fa-sticky-note-o fa-fw"></i></a>
+            </td>
+            <td>
+                <a href="#/analysis/result/{{result.id}}">{{'user.results.table.open' | translate}}</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

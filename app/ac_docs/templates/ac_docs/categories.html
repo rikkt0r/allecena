@@ -1,0 +1,30 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/categories/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### GET /api/categories/[categoryName]/[allegro|ebay]
+
+```json
+{}
+```
+
+# Response
+### HTTP 200
+
+```json
+{
+  "categorySuggestions": [
+    {
+      "id": 54002,
+      "name": "iPhone",
+      "parent_name": "Apple"
+    },
+    ...
+  ]
+}
+```
+
+{% endblock %}

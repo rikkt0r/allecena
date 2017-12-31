@@ -1,0 +1,78 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/user/results/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### GET /api/user/results/[result_id], default=wszystkie
+```json
+{}
+```
+
+# Response
+### HTTP 200, lista
+```json
+{
+  "results": [
+    {
+      "id": 1,
+      "name": "Iphone 6s 24GB",
+      "category": "telefony komórkowe > apple",
+      "advanced": true,
+      "statistics": true,
+      "hint": true,
+      "prediction": true,
+      "histogram": false,
+      "trends" false
+    },
+    {"id": 2, "name": "nazwa wyszukiwania", "category": "kategoria wraz z parentem", "dostępne opcje": "true/false"},
+    ...
+  ]
+}
+```
+
+### HTTP 200, pojedyńczy
+```json
+{
+  "statistics": {
+    "price" : {
+      "min" : 10.5,
+      "max" : 16.7,
+      "mean" : 13.6,
+      "median": 12.0,
+      "deviation": 0.9
+    },
+    "corellations": [
+      {"name": "isBuyNow", "value": 0.87},
+      {"name": "isProduct", "value": 0.82},
+      {"name": "payuInstallment", "value": 0.66},
+      {"name": "invoice", "value": 0.51},
+      {"name": "isForGuests", "value": 0.34}
+    ]
+  },
+  "hint": {
+    "itemPrice": 13.52
+  },
+  "prediction": {
+    "sellingProbability": 0.8
+  },
+  "histogram": {
+    "current": {
+        "prices": [111.20, 114.14, 119.99],
+        "counts": [4, 2, 15]
+    },
+    "ended": {
+        "prices": [149.99, 180, 185.05],
+        "counts": [4, 2, 10]
+    }
+  },
+  "trends": {
+    "dates": ["list of timestamps here"],
+    "meanPrices": ["list of mean prices here"],
+    "amountSold": ["list of amount sold here"]
+  }
+}
+```
+
+{% endblock %}

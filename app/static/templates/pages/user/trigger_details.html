@@ -1,0 +1,58 @@
+<div ng-if="trigger">
+    <h1>Aukcja {{trigger.auction_id}}</h1>
+    <h3>{{trigger.name}}</h3>
+    
+    <br/><br/>
+    
+    <p class="lead">
+        {{'user.triggers.details.details' | translate}}<br/>
+        <table class="table table-striped table-hover" >
+            <thead class="thead-inverse">
+                <tr>
+                    <th>{{'user.triggers.details.factor' | translate}}</th>
+                    <th>{{'user.triggers.details.value' | translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{'user.triggers.headers.mode' | translate}}</td>
+                    <td>{{translateMode(trigger.mode)}}</td>
+                </tr>
+                <tr>
+                    <td>{{'user.triggers.headers.modeValue' | translate}}</td>
+                    <td>{{trigger.mode_value}}</td>
+                </tr>
+                <tr>
+                    <td>{{'user.triggers.headers.time' | translate}}</td>
+                    <td>{{translateTime(trigger.time)}}</td>
+                </tr>
+                <tr>
+                    <td>{{'user.triggers.headers.sources' | translate}}</td>
+                    <td>{{trigger.provider}}</td>
+                </tr>
+                <tr>
+                    <td>{{'user.triggers.headers.finished' | translate}}</td>
+                    <td>{{trigger.finished ? ('enumerations.yesNo.yes' | translate) : ('enumerations.yesNo.no' | translate)}}</td>
+                </tr>
+                <tr>
+                    <td>{{'user.triggers.headers.date_created' | translate}}</td>
+                    <td>{{trigger.date_created}}</td>
+                </tr>
+                <tr>
+                    <td>{{'user.triggers.headers.date_finished' | translate}}</td>
+                    <td>{{trigger.date_finished}}</td>            
+                </tr>
+            </tbody>
+        </table>
+    </p>
+
+    <br/><br/>
+
+    <div class="row" ng-if="trigger_chart">
+        <h3>{{'user.triggers.details.values' | translate}}</h3>
+        <canvas id="allegro_trigger_chart" class="chart chart-line" chart-legend="true" chart-data="trigger_chart.data" chart-labels="trigger_chart.labels" chart-series="trigger_chart.series"></canvas>
+    </div>
+</div>
+
+<br/><br/>
+

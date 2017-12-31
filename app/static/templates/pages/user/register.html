@@ -1,0 +1,48 @@
+<h2>Zarejestruj się</h2>
+
+<form name="registerForm" class="center-block">
+    <div>
+        <h4>Adres email</h4>
+
+        <div class="form-group" ng-class="{'has-error': registerForm.email.$invalid && (registerForm.email.$dirty || submitted)}">
+            <input type="email" name="email" class="form-control" ng-model="data.email" placeholder="" required/>
+        </div>
+
+        <div class="alert alert-danger" ng-show="registerForm.email.$invalid && (registerForm.email.$dirty || submitted)">
+            <ul>
+                <li ng-show="registerForm.email.$error.required">To pole jest wymagane</li>
+                <li ng-show="registerForm.email.$error.email">Proszę podać poprawny adres email</li>
+                <li ng-show="registerForm.password.$error.invalidUser">Taki użytkownik już istnieje w systemie</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <h4>Hasło</h4>
+
+        <div class="form-group" ng-class="{'has-error': registerForm.password.$invalid && (registerForm.password.$dirty || submitted)}">
+            <input type="password" placeholder="silne hasło" name="password" class="form-control" ng-model="data.password" placeholder="" required/>
+            <input type="password" placeholder="powtórz hasło" name="password_repeat" class="form-control" ng-model="data.password_repeat" required
+                   ui-validate=" '$value==password' "
+                   ui-validate-watch=" 'password' "
+            />
+        </div>
+
+        <div class="alert alert-danger"
+             ui-validate=" '$value==password' "
+             ui-validate-watch=" 'password' "
+             ng-show="registerForm.password.$invalid && (registerForm.password.$dirty || submitted) &&
+        !registerForm.password.$error.invalidUser">
+            <ul>
+                <li ng-show="registerForm.password.$error.required">To pole jest wymagane</li>
+                <li ng-show="registerForm.password.$error.passwordMatch">Hasła nie pasują</li>
+            </ul>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-warning btn-default btn-lg" style="width: 100%;" ng-click="register(registerForm)">
+        Zarejestruj się !
+    </button>
+
+    <br/><br/>
+</form>

@@ -1,0 +1,65 @@
+<h1 class="text-center">Wyceń - rezultat</h1>
+
+<div class="row">
+    <div class="row" ng-if="result.allegro_hint.itemPrice">
+        <h3>Przewidywana cena przedmiotu</h3>
+        <p>{{result.allegro_hint.itemPrice}} zł</p>
+    </div>
+
+    <div class="row" ng-if="result.allegro_prediction.sellingProbability">
+        <h3>Przewidywane prawdopodobieństwo sprzedaży przedmiotu</h3>
+        <p>{{result.allegro_prediction.sellingProbability}}</p>
+    </div>
+
+    <div class="row" ng-if="result.allegro_statistics.price">
+        <h3>Statystyki</h3>
+
+        <div>
+            <b>Cena minimalna</b>
+            <h4>{{result.allegro_statistics.price.min}} zł</h4>
+        </div>
+        
+        <div>
+            <b>Cena maksymalna</b>
+            <h4>{{result.allegro_statistics.price.max}} zł</h4>
+        </div>
+
+        <div>
+            <b>Średnia cen</b>
+            <h4>{{result.allegro_statistics.price.mean}} zł</h4>
+        </div>
+
+        <div>
+            <b>Mediana ceny</b>
+            <h4>{{result.allegro_statistics.price.median}} zł</h4>
+        </div>
+
+        <div>
+            <b>Odchylenie standardowe ceny</b>
+            <h4>{{result.allegro_statistics.price.deviation}} zł</h4>
+         </div>
+    </div>
+
+    <div class="row" ng-if="result.allegro_statistics.correlations">
+        <h3>Czynniki o największym znaczeniu</h3>
+    
+        <div class="row">
+            <canvas id="radar" class="chart chart-radar" chart-data="allegro_correlations.data" chart-labels="allegro_correlations.labels"></canvas>
+        </div>        
+    </div>
+
+    <div class="row" ng-if="result.allegro_histogram">
+        <h3>Histogram aktualnych i przeszłych cen</h3>
+        <canvas id="allegro_histogram" class="chart chart-bar" chart-legend="true" chart-data="allegro_histogram.data" chart-labels="allegro_histogram.labels" chart-series="allegro_histogram.series"></canvas>
+    </div>
+
+    <div class="row">
+        <h3>Trendy dla produktu</h3>
+        <canvas id="allegro_trends" class="chart chart-line" chart-legend="true" chart-data="allegro_trends.data" chart-labels="allegro_trends.labels" chart-series="allegro_trends.series"></canvas>
+    </div>
+</div>
+
+            
+       
+ 
+ 

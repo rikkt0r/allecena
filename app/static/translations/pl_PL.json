@@ -1,0 +1,246 @@
+{
+    "test" : "PL",
+    "menu" : {
+        "home"              : "Strona główna",
+        "analyse"           : "Analizuj",
+        "about"             : "O nas",
+        "login"             : "Zaloguj",
+        "register"          : "Zarejestruj się",
+        "panel"             : "Moja AlleCena",
+        "results"           : "Moje wyniki",
+        "auctions"          : "Moje aukcje",
+        "triggers"          : "Obserwowane aukcje",
+        "settings"          : "Ustawienia",
+        "logout"            : "Wyloguj się"
+    },
+    "analysis" : {
+        "features" : {
+            "hint"          : "Prognoza ceny",
+            "prediction"    : "Prognoza prawdopodobieństwa sprzedaży",
+            "histogram"     : "Histogram cen",
+            "trends"        : "Wykres trendu ceny",
+            "statistics"    : "Podstawowe statystyki"
+        },
+        "settings" : {
+            "settings"      : "Opcje analizy",
+            "actions"       : "Akcje",
+            "sources"       : "Źródła danych",
+            "analysis" : {
+                "analysis"  : "Analiza",
+                "basic"     : "Analiza prosta",
+                "advanced"  : "Analiza zaawansowana"
+            },
+            "countries"     : {
+                "countries" : "Państwa",
+                "poland"    : "Polska",
+                "czechRepublic": "Czechy",
+                "hungary"   : "Węgry",
+                "ukraine"   : "Ukraina"
+            }
+        },
+        "send"              : "Analizuj"
+    },
+    "user" : {
+        "auctions" : {
+            "no_data": "Lista przedmiotów jest pusta lub nie podano użytkownika Allegro w konfiguracji",
+            "headers" : {
+                "id"        : "Id",
+                "name"      : "Nazwa",
+                "category"  : "Kategoria",
+                "link"      : "Link"
+            }
+        },
+        "results" : {
+            "headers" : {
+                "item"      : "Przedmiot",
+                "category"  : "Kategoria",
+                "date"      : "Data wygenerowania",
+                "analyse"   : "Analiza zaawansowana",
+                "action"    : "Akcje",
+                "results"   : "Wyniki",
+                "source"    : "Źródło danych"
+            },
+            "table" : {
+                "open"      : "Otwórz"
+            }
+        },
+        "settings" : {
+            "form" : {
+                "userData"  : "Dane użytkownika",
+                "allegro_login"  : "Login Allegro",
+                "ebay_login"  : "Login Ebay",
+                "firstname"  : "Imie",
+                "lastname"  : "Nazwisko",
+                "password"  : "Hasło",
+                "passwordRepeated" : "Powtórz hasło",
+                "change"    : "Zmień hasło",
+                "save"    : "Zapisz"
+            },
+            "tabs" : {
+                "account"   : "Ustawienia konta",
+                "passwordChange"   : "Zmiana hasła"
+            }
+        },
+        "triggers" : {
+            "add"           : "Dodaj",
+            "form" : {
+                "linkHeader" : "Link do aukcji Allegro",
+                "linkDescription" : "Podaj link do aukcji Allegro, którą chesz obserwować, a AlleCena będzie śledzić ją za Ciebie",
+                "linkExample" : "np. http://allegro.pl/glebogryzarka-spalinowa-versus-7km-ohv-80cm-6-nozy-i5519326834.html",
+                "modeHeader" : "Tryb śledzenia",
+                "modeDescription" : "Podaj wielkość, której zmany chcesz śledzić",
+                "modeValueHeader" : "Wartość",
+                "modeValueDescription" : "Podaj wartość wybranej wielkości. Zostaniesz poinformowany po jej przekroczeniu.",
+                "modeValueExample" : "np. 1250.55",
+                "timeHeader" : "Częstotliwość sprawdzania",
+                "timeDescription" : "Wybierz jak często nasza aplikacja powinna sprawdzać wybraną aukcję dla Ciebie."
+            },
+            "mode" : {
+                "price"     : "Cena",
+                "views"     : "Wyświetlenia",
+                "quantity"  : "Liczba przedmiotów"            
+            },
+            "time" : {
+                 "lazy"     : "Bardzo rzadko",
+                 "moderate" : "Rzadko",
+                 "turbo"    : "Często",
+                 "ultra_turbo" : "Bardzo czesto"
+            }, 
+            "headers" : {
+                "id"        : "Id aukcji",
+                "name"      : "Nazwa",
+                "sources"   : "Źródła danych",
+                "mode"      : "Tryb",
+                "modeValue" : "Wartość",
+                "finished"  : "Zakończono",
+                "date_created"  : "Data utworzenia",
+                "date_finished" : "Data zakończenia",
+                "actions"   : "Akcje",
+                "time"      : "Częstotliwość sprawdzania"
+            },
+            "table" : {
+                "preview"   : "Podgląd",
+                "delete"    : "Usuń"
+            }, 
+            "tabs" : {
+                "add"       : "Dodaj aukcję obserowaną",
+                "list"      : "Obserwowane aukcje"
+            },
+            "details" : {
+                "details"   : "Szczegóły",
+                "values"    : "Uzyskane wartości",
+                "factor"    : "Czynnik",
+                "value"     : "Wartość",
+                "date"      : "Data"
+            },
+            "legend": {
+                "price"   : "Cena w danym okresie"
+            }
+        }
+    },
+    "correlations" : {
+        "isBuyNow"          : "Kup teraz",
+        "priceBuyNow"       : "Cena kup teraz",
+        "priceHighestBid"   : "Aktualna cena licytacji",
+        "hasPhotos"         : "Zdjęcia produktu",
+        "sellerRating"      : "Ranking sprzedawcy",
+        "sellerShop"        : "Sprzedawca jest sklepem",
+        "sellerSuper"       : "Supersprzedawca",
+        "isForGuests"       : "Możliwość zakupu bez rejestracji",
+        "isProduct"         : "Jest skatalogowanym produktem",
+        "isBrandZone"       : "Strefa marek",
+        "payuInstallment"   : "Payu",
+        "allegroStandard"   : "Allegro standard",
+        "timeEnds"          : "Czas zakończenia",
+        "shipmentFree"      : "Darmowa wysyłka",
+        "minShipmentPrice"  : "Minimalna cena wysyłki",
+        "minShipmentTime"   : "Minimalny czas wysyłki",
+        "featureHighlight"  : "Aukcja wyróżniona",
+        "featurePromotion"  : "Aukcja promowana",
+        "featureBold"       : "Aukcja pogrubiona na liście",
+        "amountStart"       : "Liczba wszystkich przedmiotów",
+        "amountLeft"        : "Liczba pozostałych przedmiotów",
+        "views"             : "Liczba wyświetleń",
+        "used"              : "Produkt używany",
+        "offerInfinite"     : "Oferta stała",
+        "minPriceNotReached": "Cena minimalna nieosiągnięta",
+        "minPriceSet"       : "Cena minimalna",
+        "invoice"           : "Faktura",
+        "guarantee"         : "Typ gwarancji",
+        "paymentPayu"       : "Payu", 
+        "paymentOnDelivery" : "Płatność przy odbiorze",
+        "paymentTransfer"   : "Formy płatności"
+    },
+    "histogram" : {
+        "legend" : {
+            "current"       : "Aktualne",
+            "ended"         : "Zakończone"
+        }
+    },
+    "trends" : {
+        "legend" : {
+            "mean"          : "Średnia cena",
+            "amount"        : "Ilość sprzedanych"
+        }
+    },
+    "http": {
+        "errors": {
+            "error":"Błąd",
+            "400":"Nieprawidłowe zapytanie",
+            "401":"Nieautoryzowane zapytanie",
+            "402":"Wymagana opłata",
+            "403":"Zabronione",
+            "404":"Nie znaleziono",
+            "405":"Niedozwolona metoda",
+            "406":"Niedozwolone",
+            "407":"Wymagane uwierzytelnienie do serwera pośredniczącego", 
+            "408":"Koniec czasu oczekiwania na żądanie",
+            "409":"Konflikt",
+            "410":"Usunięto",
+            "411":"Wymagana długość",
+            "412":"Warunek wstępny nie może być spełniony",
+            "413":"Encja zapytania zbyt długa",
+            "414":"Adres URI zapytania zbyt długi",
+            "415":"Nieznany sposób żądania", 
+            "416":"Zakres bajtowy podany w zapytaniu nie do obsłużenia",
+            "417":"Oczekiwana wartość nie do zwrócenia",
+            "418":"Jestem czajnikiem",
+            "451":"Zawartość niedostępna z powodów prawnych",
+            "500":"Wewnętrzny błąd serwera",
+            "501":"Nie zaimplementowano",
+            "502":"Błąd bramy",
+            "503":"Usługa niedostępna",
+            "504":"Przekroczony czas bramy",
+            "505":"Nieobsługiwana wersja HTTP",
+            "506":"Variant Also Negotiates",
+            "507":"Brak wolnego miejsca",
+            "508":"Pętla wykryta",
+            "510":"Brak rozszerzenia",
+            "511":"Autentykacja wymagana"
+        }
+    },
+    "enumerations" : {
+        "yesNo" : {
+            "yes"           : "tak",
+            "no"            : "nie"
+        },
+        "triggersMode" : {
+             "0"        : "cena",
+             "1"        : "wyświetlenia",
+             "2"        : "liczba przedmiotów"
+        },
+        "triggersTime" : {
+            "0"          : "bardzo rzadko",
+            "1"          : "rzadko",
+            "2"          : "często",
+            "3"          : "bardzo często"
+        }
+    },
+    "errors" : {
+        "required"          : "To pole jest wymagane",
+        "passwordsNotMatch" : "Hasła nie pasują"
+    },
+    "messages" : {
+        "success"           : "Operacja zakończona powodzeniem"
+    }
+}

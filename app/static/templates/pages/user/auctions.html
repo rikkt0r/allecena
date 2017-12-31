@@ -1,0 +1,26 @@
+<h3 class="lead">{{'menu.auctions' | translate}}</h3>
+
+<div class="user-auctions">
+    <table class="table table-striped table-hover" >
+        <thead class="thead-inverse">
+        <tr>
+            <th>{{'user.auctions.headers.id'       | translate}}</th>
+            <th>{{'user.auctions.headers.name'     | translate}}</th>
+            <th>{{'user.auctions.headers.category' | translate}}</th>
+            <th>{{'user.auctions.headers.link'     | translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="auction in auctions">
+            <td><a ng-click="showDetails(auction)">{{ auction.id }}</a></td>
+            <td>{{ auction.name }}</td>
+            <td>{{ auction.categoryName }}</td>
+            <td><a target="_blank" href="{{auction.url}}">link</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 ng-if="!auctions.length">
+        {{'user.auctions.no_data'     | translate}}
+    </h3>
+</div>

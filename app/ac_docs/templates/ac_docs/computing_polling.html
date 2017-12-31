@@ -1,0 +1,41 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} /api/computing/polling/ {% endblock %}
+
+{% block markdown %}
+
+# Request
+### GET /api/computing/polling/
+
+```json
+{
+    "computingHash": "347fn3478fn374f343f4fhhh"
+}
+```
+
+# Response
+### HTTP 200
+```json
+{
+  "result": {
+    "id": 43432,
+    "name": "iPhone",
+    "provider": "allegro",
+    "modes": ["hint", "statistics", "etc.."]
+  }
+}
+```
+
+### HTTP 204
+Jeszcze nie wymielono.
+```json
+{}
+```
+
+### HTTP 418 // ?? 500
+I'm a teapot - wystąpił błąd w mieleniu taska.
+```json
+{}
+```
+
+{% endblock %}

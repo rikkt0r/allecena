@@ -1,0 +1,43 @@
+{% extends 'ac_docs/base.html' %}
+
+{% block title %} Dokumentacja API {% endblock %}
+
+{% block markdown %}
+## API
+GET, POST, PUT, DELETE
+
+```
+200 Ok
+201 Created
+204 No content (kiedy nic sensownego nie zwracamy)
+400 Wrong content
+401 Auth error
+403 Forbidden
+404 Wszystkie pozostałe wypadki
+405 Wrong method ==> Mapowanie na 404
+5xx ==> Mapowanie na 404
+```
+
+
+## URLs
+* [/api/computing](/docs/computing/)
+* [/api/computing/polling](/docs/computing_polling/)
+* [/api/categories](/docs/categories/)
+* [/api/user](/docs/user/)
+* [/api/user/auctions](/docs/user_auctions/)
+* [/api/user/data](/docs/user_data/)
+* [/api/user/login](/docs/user_login/)
+* [/api/user/logout](/docs/user_logout/)
+* [/api/user/panel](/docs/user_panel/)
+* [/api/user/password](/docs/user_password/)
+* [/api/user/password/reset](/docs/user_password_reset/)
+* [/api/user/register](/docs/user_register/)
+* [/api/user/register/facebook](/docs/user_register_facebook/)
+* [/api/user/results](/docs/user_results/)
+* [/api/user/triggers](/docs/user_triggers/)
+
+
+### Deploy Checklist ###
+* http://docs.celeryproject.org/en/latest/tutorials/daemonizing.html
+
+{% endblock %}

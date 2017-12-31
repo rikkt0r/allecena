@@ -1,0 +1,1 @@
+from .celeryd import queue
