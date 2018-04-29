@@ -1,0 +1,16 @@
+FROM ubuntu
+
+RUN apt-get update
+RUN apt-get install -y apt-utils
+RUN apt-get install -y python-pip python-distlib python-setuptools python-dev liblapack3 liblapacke liblapacke-dev \
+                       libatlas-base-dev gfortran libblas-dev libblas3 g++ libyaml-dev libmemcached-dev \
+                       libjpeg-dev zlib1g-dev apache2 apache2-utils libapache2-mod-wsgi
+
+ADD app /var/www/allecena/
+ADD requirements.txt /
+ADD deploy/apache__sites_available__allecena.conf /etc/apache2/sites-available/000-default.conf
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+EXPOSE 80
+
+CMD ["apache2ctl", "-D", "FOREGROUND"]

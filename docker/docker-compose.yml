@@ -1,0 +1,96 @@
+version: "1"
+
+services:
+
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  cache:
+    image: memcached:alpine
+    ports:
+      - "11211:11211"
+    networks:
+      - allecena_net
+
+  rabbit:
+    image: rabbitmq:alpine
+    hostname: "jack-the-rabbit"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    labels:
+      NAME: "jack-the-rabbit"
+    networks:
+      - allecena_net
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "QQNCVSBTHXUIVKCBYZKP"
+      RABBITMQ_DEFAULT_USER: "rabbit"
+      RABBITMQ_DEFAULT_PASS: "rabbit"
+      RABBITMQ_DEFAULT_VHOST: "/"
+
+  http:
+    image: allecena_http
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: 0.4
+          memory: 600M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:8000"
+    networks:
+      - allecena_net
+    depends_on:
+      - db
+      - cache
+    environment:
+
+  celery:
+    image: allecena_celery
+    deploy:
+      replicas: 4
+      resources:
+        limits:
+          cpus: 0.6
+          memory: 400M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:8000"
+    networks:
+      - allecena_net
+    environment:
+      ALLEGRO_PASSWORD_HASH: "fill me"
+      ALLEGRO_API_KEY: "fill me"
+      ALLEGRO_LOGIN: "fill me"
+    depends_on:
+      - db
+      - cache
+      - rabbit
+
+  celerybeat:
+    image: allecena_celerybeat
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: 0.2
+          memory: 200M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+    networks:
+      - allecena_net
+    depends_on:
+      - db
+      - rabbit
+
+networks:
+  allecena_net: 10.0.6.0/24

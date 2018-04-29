@@ -1,0 +1,13 @@
+FROM ubuntu
+
+RUN apt-get update
+RUN apt-get install -y apt-utils
+RUN apt-get install -y python-pip python-distlib python-setuptools python-dev liblapack3 liblapacke liblapacke-dev \
+                       libatlas-base-dev gfortran libblas-dev libblas3 g++ libyaml-dev libmemcached-dev \
+                       libjpeg-dev zlib1g-dev apache2 apache2-utils libapache2-mod-wsgi
+
+ADD app /
+ADD requirements.txt /
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+CMD ["python", "/app/manage.py", "celeryd", "--verbosity=2", "--loglevel=DEBUG", "-c", "2"]
