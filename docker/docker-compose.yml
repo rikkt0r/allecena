@@ -1,13 +1,15 @@
-version: "1"
+version: "3"
 
 services:
 
   db:
     image: postgres:alpine
-    restart: always
+    # restart_policy:
+    #   condition: any
+    #   max_attempts: 2
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
 
   cache:
     image: memcached:alpine
@@ -38,7 +40,7 @@ services:
       replicas: 1
       resources:
         limits:
-          cpus: 0.4
+          cpus: "0.4"
           memory: 600M
       restart_policy:
         condition: on-failure
@@ -49,7 +51,7 @@ services:
     depends_on:
       - db
       - cache
-    environment:
+    # environment:
 
   celery:
     image: allecena_celery
@@ -57,12 +59,10 @@ services:
       replicas: 4
       resources:
         limits:
-          cpus: 0.6
+          cpus: "0.6"
           memory: 400M
       restart_policy:
         condition: on-failure
-    ports:
-      - "80:8000"
     networks:
       - allecena_net
     environment:
@@ -80,12 +80,10 @@ services:
       replicas: 1
       resources:
         limits:
-          cpus: 0.2
+          cpus: "0.2"
           memory: 200M
       restart_policy:
         condition: on-failure
-    ports:
-      - "80:80"
     networks:
       - allecena_net
     depends_on:
@@ -93,4 +91,4 @@ services:
       - rabbit
 
 networks:
-  allecena_net: 10.0.6.0/24
+  allecena_net: null
