@@ -19,7 +19,7 @@ numpy==1.10.4
 path.py==8.1.2
 pexpect==4.0.1
 pickleshare==0.6
-Pillow==3.1.1
+Pillow==6.2.0
 ptyprocess==0.5.1
 pylibmc==1.5.0
 PyPDF2==1.25.1
