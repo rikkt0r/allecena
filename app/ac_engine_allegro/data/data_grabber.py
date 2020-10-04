@@ -1,7 +1,10 @@
 # coding: utf-8
 import itertools
 from math import ceil
+
+import requests
 from django.conf import settings
+from django.core.cache import cache
 from suds.client import Client, WebFault
 
 from ac_common.exceptions import AllecenaException
@@ -10,6 +13,65 @@ from ac_common.utils import maintain_api_session, grabber_exception_fallback, ch
 
 from ac_engine.data.data_grabber import AbstractDataGrabber
 from ac_engine_allegro.data.data_container import DataContainerSimple, DataContainerDetailed
+
+
+# Just a thought.. nah, too much work.
+class NewClient:
+    base_url = 'https://api.allegro.pl'
+    token_key = 'allegro_api_token'
+
+    def build_url(self, relative_url):
+        return '{}/{}'.format(
+            self.base_url,
+            relative_url.lstrip('/')
+        )
+
+    def _get_token(self):
+        # https://developer.allegro.pl/auth/
+        token = cache.get(self.token_key)
+        if token:
+            return token
+
+        resp = requests.post('https://allegro.pl/auth/oauth/token?grant_type=client_credentials', auth=(
+            settings.ALLEGRO_CLIENT_ID,
+            settings.ALLEGRO_CLIENT_SECRET
+        ))
+        if resp.status_code != 200:
+            exception_logger.error('Error getting token', )
+        data = resp.json()
+        cache.set(self.token_key, data['access_token'], timeout=data['expires_in'])
+        return data['access_token']
+
+    def _query(self, method, relative_url, *args, **kwargs):
+        if 'headers' not in kwargs:
+            kwargs['headers'] = {}
+
+        kwargs['headers'].update({
+            'Accept': 'application/vnd.allegro.public.v1+json',
+            'Authorization': 'Bearer %s' % self._get_token()
+        })
+
+        return getattr(requests, method)(
+            self.build_url(relative_url),
+            *args,
+            **kwargs
+        )
+
+    def get(self, url, *args, **kwargs):
+        # APIs available with public token access
+        # https://developer.allegro.pl/documentation/#operation/getListing
+        # https://developer.allegro.pl/documentation/#operation/getCategoriesUsingGET
+        # https://developer.allegro.pl/documentation/#operation/getCategoryUsingGET_1
+        # https://developer.allegro.pl/documentation/#operation/getFlatProductParametersUsingGET
+        # https://developer.allegro.pl/documentation/#operation/getListOfDeliveryMethodsUsingGET
+        # https://developer.allegro.pl/documentation/#operation/getOrdersCarriersUsingGET
+        # https://developer.allegro.pl/documentation/#operation/getBillingTypes
+
+        return self._query('get', url, *args, **kwargs)
+
+    def post(self, url, *args, **kwargs):
+        return self._query('post', url, *args, **kwargs)
+
 
 
 class DataGrabber(AbstractDataGrabber):

@@ -2,10 +2,8 @@
 ---
 
 ### What am I looking at?
-Hello Stranger,
-
-this is AlleCena, abreviated from polish 'Ale cena'(what a price!).
-It's a tool for statistical analysis and tracking of the most popular polish online auction system allegro.pl
+This is AlleCena, abbreviated from Polish 'Ale cena'(what a price!).
+It's a tool for statistical analysis and tracking of the most popular Polish online auction system allegro.pl
 
 Awarded in 2015 during [BrainCode Mobi 2015](https://allegro.tech/braincode/2015/#toc_11) as the best application in category 'Allegro'
 
@@ -18,6 +16,22 @@ Application features:
 * basic statistical data
 
 And all the above, given just user account and scarce information like item name and whether was it used or does it have a warranty
+
+
+### PROJECT IS DEAD
+Ok, so... Allegro is dropping support for Soap API on 26.10.2020
+
+TBH there's too much refactoring etc to be done to make it work again,
+
+no-one cares, so it's not worth the effort.
+
+@ ac_engine_allegro.data.data_grabber.NewClient just a glimpse of what might have come,
+
+anyway, docker config wasn't finished, code is 5 year old,
+
+have a good day ;)
+
+//rikkt0r
 
 
 ### Authors
@@ -33,7 +47,7 @@ Initally helped out with the project:
 
 ### Tech
 
-* Virtually any relational database (config change required)
+* Any relational database
 * Django & Django Rest Framework
 * Celery & RabbitMQ
 * Memcache | Redis
@@ -142,7 +156,8 @@ python app/manage.py allegro_update_categories
 
 ## TODO
 
-* Migrate to Docker
+* Migrate to Docker (not finished)
+* Mention bearer-token-for-application flow
 * Tests :-)
 * Create grabber and container for Ebay (fill ac_engine_ebay)
 * Denormalize TriggerValues table

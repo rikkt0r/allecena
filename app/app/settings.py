@@ -238,6 +238,11 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True
         },
+        'requests': {
+            'handlers': ['console', 'exception'],
+            'level': 'ERROR',
+            'propagate': True
+        },
         'py.warnings': {
             'handlers': ['base', 'console'],
         },
@@ -281,17 +286,10 @@ PROVIDERS = (
 )
 PROVIDERS_KEYS = ('allegro', 'ebay', 'all')
 
-ALLEGRO_SOAP_URL = 'https://webapi.allegro.pl/service.php'
-# ALLEGRO_SOAP_WSDL = 'https://webapi.allegro.pl/service.php?wsdl'
-# TO SAVE TIME ON SUDS CACHING PROBLEM....
-ALLEGRO_SOAP_WSDL = 'file://' + os.path.join(BASE_DIR, 'static', 'allegro.wsdl')
-
-ALLEGRO_VERSION_FILE = os.path.join(BASE_DIR, 'allegro_api.version')
-ALLEGRO_SESSION_FILE = os.path.join(BASE_DIR, 'allegro_api.session')
 ALLEGRO_VERSION = 0
 ALLEGRO_COUNTRY = 1  # country code for poland
 
-from .local_settings import ALLEGRO_PASSWORD_HASH, ALLEGRO_KEY, ALLEGRO_LOGIN
+from .local_settings import ALLEGRO_CLIENT_ID, ALLEGRO_CLIENT_SECRET
 
 EBAY_SOAP_URL = 'register and fill me'
 EBAY_SOAP_WSDL = 'file://' + os.path.join(BASE_DIR, 'static', 'ebay.wsdl')
